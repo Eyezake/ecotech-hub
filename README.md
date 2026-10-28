@@ -2,6 +2,22 @@
 
 EcoTech Hub is a plain HTML, CSS, and vanilla JavaScript educational website about e-waste awareness, education, and action. It is configured for GitHub Pages at `https://eyezake.github.io/ecotech-hub/`.
 
+## Update an existing GitHub Pages site
+
+GitHub Pages does not deploy the ZIP file itself. Extract the ZIP first, then copy the extracted project contents into your local clone of `Eyezake/ecotech-hub`, including hidden files such as `.github/workflows/deploy.yml` and `.nojekyll`.
+
+From the cloned repository folder, run:
+
+```bash
+git pull origin main
+# Copy the extracted EcoTech Hub files into this folder and replace existing files.
+git add .
+git commit -m "Update EcoTech Hub blog and theme toggle"
+git push origin main
+```
+
+The push triggers the existing GitHub Actions workflow. Open the **Actions** tab, wait for **Deploy EcoTech Hub to GitHub Pages** to complete, then hard-refresh the site. If the old page still appears, use a private browser window or clear the browser cache.
+
 ## Push to GitHub
 
 Create the repository `ecotech-hub` under the GitHub account `Eyezake`, then run these commands from this folder:
@@ -26,6 +42,10 @@ If the repository already exists, use its existing remote and push the `main` br
 5. Confirm that the Home, About, Services, Blog, and Contact links load correctly.
 
 The workflow deploys the repository root directly; there is no npm install, build command, framework, or server. The Contact form opens a prefilled issue in this repository, so it remains usable without a paid form backend.
+
+## Light and dark mode
+
+Every page now includes the circular moon/sun button in the top navigation. It follows the visitor’s operating-system preference on first visit, allows a manual toggle, and saves the choice in the browser with `localStorage`. The preference works independently on each browser and does not require a server or database.
 
 ## Google Search Console checklist
 
